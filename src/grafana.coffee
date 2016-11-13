@@ -11,6 +11,7 @@
 #   - `hubot grafana get graphite-carbon-metrics:3 now-8d now-1d` - Get only the third panel of a particular dashboard with a window of 8 days ago to yesterday
 #
 # Configuration:
+#   HUBOT_SLACK_TOKEN - Slack token for Hubot integration
 #   HUBOT_GRAFANA_HOST - Host for your Grafana 2.0 install, e.g. 'http://play.grafana.org'
 #   HUBOT_GRAFANA_API_KEY - API key for a particular user (leave unset if unauthenticated)
 #   HUBOT_GRAFANA_QUERY_TIME_RANGE - Optional; Default time range for queries (defaults to 6h)
@@ -24,7 +25,6 @@
 #   hubot grafana search <keyword> - Search available dashboards by <keyword>
 #
 
-crypto      = require 'crypto'
 fs          = require 'fs'
 request     = require 'request'
 slackClient = require '@slack/client'
@@ -221,7 +221,6 @@ module.exports = (robot) ->
       authHeader = {
         'Accept': 'application/json'
       }
-    console.log("Get Grafana data: #{grafana_host}/api/#{url}")
     robot.http("#{grafana_host}/api/#{url}").headers(authHeader).get() (err, res, body) ->
       if (err)
         robot.logger.error err

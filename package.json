@@ -1,0 +1,31 @@
+{
+  "name": "hubot-grafana-slack",
+  "description": "Share Grafana dashboards in Slack, privately",
+  "version": "0.0.1",
+  "author": "Nita Maria <marianitadn@gmail.com>",
+  "license": "MIT",
+  "keywords": "hubot, hubot-scripts, grafana, graphs",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maria/hubot-grafana-slack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maria/hubot-grafana-slack/issues"
+  },
+  "dependencies": {
+    "@slack/client": "^3.6.1",
+    "request": "^2.58.0"
+  },
+  "peerDependencies": {
+    "hubot": "2.x"
+  },
+  "devDependencies": {
+    "coffee-script": "1.10.0",
+    "hubot": "2.x",
+    "hubot-test-helper": "0.0.6"
+  },
+  "main": "index.coffee",
+  "scripts": {
+    "test": "grunt test"
+  }
+}
